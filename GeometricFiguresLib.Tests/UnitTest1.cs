@@ -11,7 +11,7 @@ namespace GeometricFiguresLib.Tests
         [DataRow(-4, 5, 6, 0)]
         public void GetSquareTriangle_TriangleSquareCalc_success(double sideA, double sideB, double sideC, double expected)
         {
-            var result = GeometricFiguresLib.GetSquareTriangle(sideA, sideB, sideC);
+            var result = new FigureTriangle(sideA, sideB, sideC).GetSquare();
 
             Assert.AreEqual(expected, result);
         }
@@ -23,7 +23,7 @@ namespace GeometricFiguresLib.Tests
         [DataRow(-5, 0)]
         public void GetSquareCircle_CircleSquareCalc_success(double radius, double expected)
         {
-            var result = GeometricFiguresLib.GetSquareCircle(radius);
+            var result = new FigureCircle(radius).GetSquare();
 
             Assert.AreEqual(expected, result);
         }
@@ -38,7 +38,7 @@ namespace GeometricFiguresLib.Tests
         [DataRow(-4, 5, 6, false)]
         public void IsRightTriangle_CheckTriangleIsRight_success(double sideA, double sideB, double sideC, bool expected)
         {
-            var result = GeometricFiguresLib.IsRightTriangle(sideA, sideB, sideC);
+            var result = new FigureTriangle(sideA, sideB, sideC).IsRightTriangle();
 
             Assert.AreEqual(expected, result);
         }
@@ -53,7 +53,7 @@ namespace GeometricFiguresLib.Tests
         [DataRow(-4, 5, 6, false)]
         public void IsTriangleExists_CheckTriangleExists_success(double sideA, double sideB, double sideC, bool expected)
         {
-            var result = GeometricFiguresLib.IsTriangleExists(sideA, sideB, sideC);
+            var result = new FigureTriangle(sideA, sideB, sideC).IsTriangleExists();
 
             Assert.AreEqual(expected, result);
         }
