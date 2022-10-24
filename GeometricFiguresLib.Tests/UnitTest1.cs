@@ -11,7 +11,9 @@ namespace GeometricFiguresLib.Tests
         [DataRow(-4, 5, 6, 0)]
         public void GetSquareTriangle_TriangleSquareCalc_success(double sideA, double sideB, double sideC, double expected)
         {
-            var result = new FigureTriangle(sideA, sideB, sideC).GetSquare();
+            IFigure figure = new FigureTriangle(sideA, sideB, sideC);
+
+            var result = figure.GetSquare();
 
             Assert.AreEqual(expected, result);
         }
@@ -23,7 +25,9 @@ namespace GeometricFiguresLib.Tests
         [DataRow(-5, 0)]
         public void GetSquareCircle_CircleSquareCalc_success(double radius, double expected)
         {
-            var result = new FigureCircle(radius).GetSquare();
+            IFigure figure = new FigureCircle(radius);
+
+            var result = figure.GetSquare();
 
             Assert.AreEqual(expected, result);
         }
