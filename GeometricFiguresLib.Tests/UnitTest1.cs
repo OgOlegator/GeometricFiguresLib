@@ -1,3 +1,5 @@
+using GeometricFiguresLib.Figures;
+
 namespace GeometricFiguresLib.Tests
 {
     [TestClass]
@@ -42,7 +44,7 @@ namespace GeometricFiguresLib.Tests
         [DataRow(-4, 5, 6, false)]
         public void IsRightTriangle_CheckTriangleIsRight_success(double sideA, double sideB, double sideC, bool expected)
         {
-            var result = new FigureTriangle(sideA, sideB, sideC).IsRightTriangle();
+            var result = new FigureTriangle(sideA, sideB, sideC).IsRight();
 
             Assert.AreEqual(expected, result);
         }
@@ -57,7 +59,7 @@ namespace GeometricFiguresLib.Tests
         [DataRow(-4, 5, 6, false)]
         public void IsTriangleExists_CheckTriangleExists_success(double sideA, double sideB, double sideC, bool expected)
         {
-            var result = new FigureTriangle(sideA, sideB, sideC).IsTriangleExists();
+            var result = new FigureTriangle(sideA, sideB, sideC).IsExists();
 
             Assert.AreEqual(expected, result);
         }

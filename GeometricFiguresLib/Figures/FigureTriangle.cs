@@ -1,7 +1,11 @@
-﻿using static System.Math;
+﻿using GeometricFiguresLib.Exceptions;
+using static System.Math;
 
-namespace GeometricFiguresLib
+namespace GeometricFiguresLib.Figures
 {
+    /// <summary>
+    /// Треугольник
+    /// </summary>
     public class FigureTriangle : IFigure
     {
         private readonly double _sideA;
@@ -17,20 +21,28 @@ namespace GeometricFiguresLib
 
         public double GetSquare()
         {
-            if (!IsTriangleExists())
-                return 0;
+            if (!IsExists())
+                throw new GeometricFiguresLibException("Треугольник не существует");
 
             var semiPerimeter = (_sideA + _sideB + _sideC) / 2;
 
             return Sqrt(semiPerimeter * (semiPerimeter - _sideA) * (semiPerimeter - _sideB) * (semiPerimeter - _sideC));
         }
 
-        public bool IsTriangleExists()
+        /// <summary>
+        /// Треугольник существует?
+        /// </summary>
+        /// <returns></returns>
+        public bool IsExists()
             => !(_sideA + _sideB < _sideC
                 || _sideA + _sideC < _sideB
                 || _sideB + _sideC < _sideA);
 
-        public bool IsRightTriangle()
+        /// <summary>
+        /// Треугольник прямоугольный?
+        /// </summary>
+        /// <returns></returns>
+        public bool IsRight()
             => Pow(_sideA, 2) + Pow(_sideB, 2) == Pow(_sideC, 2)
             || Pow(_sideA, 2) + Pow(_sideC, 2) == Pow(_sideB, 2)
             || Pow(_sideB, 2) + Pow(_sideC, 2) == Pow(_sideA, 2);

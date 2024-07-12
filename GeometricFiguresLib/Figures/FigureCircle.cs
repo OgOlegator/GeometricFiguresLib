@@ -1,6 +1,6 @@
 ﻿using static System.Math;
 
-namespace GeometricFiguresLib
+namespace GeometricFiguresLib.Figures
 {
     public class FigureCircle : IFigure
     {
