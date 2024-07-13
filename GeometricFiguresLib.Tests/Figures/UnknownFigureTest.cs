@@ -37,7 +37,6 @@ namespace GeometricFiguresLib.Tests.Figures
         }
 
         [TestMethod]
-        [DataRow(new double[] { -4, 5, 6 })]
         [DataRow(new double[] { 11, 0, 10 })]
         [DataRow(new double[] { -4, 5, 6 })]
         [DataRow(new double[] { -5 })]

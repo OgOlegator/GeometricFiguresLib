@@ -4,7 +4,7 @@ using static System.Math;
 namespace GeometricFiguresLib.Figures
 {
     /// <summary>
-    /// 
+    /// Круг
     /// </summary>
     public class Circle : IFigure
     {

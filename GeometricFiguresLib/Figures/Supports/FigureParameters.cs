@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace GeometricFiguresLib.Figures.Supports
 {
+    /// <summary>
+    /// Параметры фигуры
+    /// </summary>
     public class FigureParameters
     {
         private Dictionary<string, List<double>> _params = new Dictionary<string, List<double>>();
@@ -19,7 +22,7 @@ namespace GeometricFiguresLib.Figures.Supports
         /// <param name="sides">Список сторон фигуры</param>
         public FigureParameters AddSides(List<double> sides)
         {
-            _params.Add(SidesKey, sides);
+            _params[SidesKey] = sides;
 
             return this;
         }
@@ -30,11 +33,15 @@ namespace GeometricFiguresLib.Figures.Supports
         /// <param name="angles">Список углов фигуры</param>
         public FigureParameters AddAngles(List<double> angles) 
         {
-            _params.Add(AnglesKey, angles);
+            _params[AnglesKey] = angles;
 
             return this;
         }
 
+        /// <summary>
+        /// Получить параметры фигуры
+        /// </summary>
+        /// <returns>Словарь с параметрами фигуры</returns>
         public Dictionary<string, List<double>> GetParams()
             => _params;
     }
