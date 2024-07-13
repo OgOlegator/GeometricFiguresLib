@@ -6,24 +6,31 @@ namespace GeometricFiguresLib.Figures
     /// <summary>
     /// Треугольник
     /// </summary>
-    public class FigureTriangle : IFigure
+    public class Triangle : IFigure
     {
         private readonly double _sideA;
         private readonly double _sideB;
         private readonly double _sideC;
 
-        public FigureTriangle(double sideA, double sideB, double sideC)
+        /// <summary>
+        /// Конструктор
+        /// </summary>
+        /// <param name="sideA">Сторона A</param>
+        /// <param name="sideB">Сторона B</param>
+        /// <param name="sideC">Сторона C</param>
+        /// <exception cref="FigureNotExistsException">Ошибка</exception>
+        public Triangle(double sideA, double sideB, double sideC)
         {
             _sideA = sideA;
             _sideB = sideB;
             _sideC = sideC;
+
+            if (!IsExists())
+                throw new FigureNotExistsException();
         }
 
         public double GetSquare()
         {
-            if (!IsExists())
-                throw new GeometricFiguresLibException("Треугольник не существует");
-
             var semiPerimeter = (_sideA + _sideB + _sideC) / 2;
 
             return Sqrt(semiPerimeter * (semiPerimeter - _sideA) * (semiPerimeter - _sideB) * (semiPerimeter - _sideC));

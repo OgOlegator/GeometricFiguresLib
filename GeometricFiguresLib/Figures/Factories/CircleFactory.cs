@@ -1,19 +1,36 @@
-﻿namespace GeometricFiguresLib.Figures.Factories
+﻿using GeometricFiguresLib.Exceptions;
+using GeometricFiguresLib.Figures.Supports;
+
+namespace GeometricFiguresLib.Figures.Factories
 {
+    /// <summary>
+    /// Фабрика для получения объекта круга 
+    /// </summary>
     public class CircleFactory : IFigureFactory
     {
-        public bool TryGet(List<double> sides, out IFigure circle)
+        public bool TryGet(FigureParameters parameters, out IFigure circle)
         {
             circle = null;
 
-            if (sides == null || sides.Count() != 1)
+            if (parameters == null)
                 return false;
 
-            var radius = sides[0];
+            if (!parameters.GetParams().TryGetValue(FigureParameters.SidesKey, out var sides))
+                return false;
 
-            circle = new FigureCircle(radius);
+            if (sides.Count() != 1) 
+                return false;
 
-            return true;
+            try
+            {
+                circle = new Circle(sides[0]);
+
+                return true;
+            }
+            catch (FigureNotExistsException)
+            {
+                return false;
+            }
         }
     }
 }

@@ -1,13 +1,18 @@
-﻿namespace GeometricFiguresLib.Figures.Factories
+﻿using GeometricFiguresLib.Figures.Supports;
+
+namespace GeometricFiguresLib.Figures.Factories
 {
+    /// <summary>
+    /// Фабрика фигур
+    /// </summary>
     internal interface IFigureFactory
     {
         /// <summary>
-        /// Получить объект фигуры если это та фигура
+        /// Получить объект фигуры если это фигура
         /// </summary>
-        /// <param name="sides">Стороны</param>
+        /// <param name="parameters">Параметры фигуры</param>
         /// <param name="figure">Объект фигуры</param>
-        /// <returns></returns>
-        bool TryGet(List<double> sides, out IFigure figure);
+        /// <returns>Фигура с такими параметрами существует?</returns>
+        bool TryGet(FigureParameters parameters, out IFigure figure);
     }
 }

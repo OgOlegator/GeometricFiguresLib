@@ -1,17 +1,36 @@
-﻿namespace GeometricFiguresLib.Figures.Factories
+﻿using GeometricFiguresLib.Exceptions;
+using GeometricFiguresLib.Figures.Supports;
+
+namespace GeometricFiguresLib.Figures.Factories
 {
+    /// <summary>
+    /// Фабрика для получения объекта треугольника 
+    /// </summary>
     public class TriangleFactory : IFigureFactory
     {
-        public bool TryGet(List<double> sides, out IFigure triangle)
+        public bool TryGet(FigureParameters parameters, out IFigure triangle)
         {
             triangle = null;
 
-            if (sides == null || sides.Count() != 3)
+            if (parameters == null)
                 return false;
 
-            triangle = new FigureTriangle(sides[0], sides[1], sides[2]);
+            if (!parameters.GetParams().TryGetValue(FigureParameters.SidesKey, out var sides))
+                return false;
 
-            return ((FigureTriangle)triangle).IsExists();
+            if (sides.Count() != 3)
+                return false;
+
+            try
+            {
+                triangle = new Triangle(sides[0], sides[1], sides[2]);
+
+                return true;
+            }
+            catch (FigureNotExistsException)
+            {
+                return false;
+            }
         }
     }
 }
