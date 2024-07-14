@@ -1,11 +1,6 @@
 ﻿using GeometricFiguresLib.Exceptions;
 using GeometricFiguresLib.Figures;
-using GeometricFiguresLib.Figures.Supports;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using GeometricFiguresLib.Supports;
 
 namespace GeometricFiguresLib.Tests.Figures
 {
@@ -43,7 +38,7 @@ namespace GeometricFiguresLib.Tests.Figures
         [DataRow(new double[] { 0 })]
         [DataRow(new double[] { 41, 25, 41, 25 })]
         [DataRow(new double[] { 4, 4, 4, 4 })]
-        public void Constructor_FigureNotFound_exception(double[] sides)
+        public void ConstructorBySides_FigureNotFound_exception(double[] sides)
         {
             Assert.ThrowsException<GeometricFiguresLibException>(() => GetInstanceBySides(sides));
         }
@@ -58,6 +53,21 @@ namespace GeometricFiguresLib.Tests.Figures
             var result = GetInstanceBySides(sides).GetFigure().GetType();
 
             Assert.IsTrue(result == expected);
+        }
+
+        [TestMethod]
+        public void ConstructorByFigure_SetAndOperationsWithFigure_success()
+        {
+            var triangle = new Triangle(6, 8, 10);
+
+            var unknown = new UnknownFigure(triangle);
+
+            var figureType = unknown.GetFigure().GetType();
+            var checkType = typeof(Triangle);
+
+            Assert.IsTrue(unknown.IsExists());
+            Assert.IsTrue(unknown.GetSquare() > 0);
+            Assert.IsTrue(figureType == checkType);
         }
 
         private UnknownFigure GetInstanceBySides(double[] sides)

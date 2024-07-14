@@ -1,6 +1,7 @@
-﻿using GeometricFiguresLib.Figures.Supports;
+﻿using GeometricFiguresLib.Figures;
+using GeometricFiguresLib.Supports;
 
-namespace GeometricFiguresLib.Figures.Factories
+namespace GeometricFiguresLib.Factories
 {
     /// <summary>
     /// Фабрика фигур

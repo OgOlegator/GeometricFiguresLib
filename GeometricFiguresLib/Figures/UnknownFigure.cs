@@ -1,6 +1,6 @@
 ﻿using GeometricFiguresLib.Exceptions;
-using GeometricFiguresLib.Figures.Factories;
-using GeometricFiguresLib.Figures.Supports;
+using GeometricFiguresLib.Factories;
+using GeometricFiguresLib.Supports;
 
 namespace GeometricFiguresLib.Figures
 {
@@ -12,7 +12,16 @@ namespace GeometricFiguresLib.Figures
         private readonly IFigure _figure;
 
         /// <summary>
-        /// Конструктор
+        /// Конструктор по фигуре
+        /// </summary>
+        /// <param name="figure">Фигура</param>
+        public UnknownFigure(IFigure figure)
+        {
+            _figure = figure;
+        }
+
+        /// <summary>
+        /// Конструктор по параметрам фигуры
         /// </summary>
         /// <param name="parameters">Параметры фигуры - стороны, углы и пр.</param>
         /// <exception cref="GeometricFiguresLibException">Ошибка</exception>

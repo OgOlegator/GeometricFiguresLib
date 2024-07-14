@@ -1,10 +1,5 @@
 ﻿using GeometricFiguresLib.Exceptions;
 using GeometricFiguresLib.Figures;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GeometricFiguresLib.Tests.Figures
 {

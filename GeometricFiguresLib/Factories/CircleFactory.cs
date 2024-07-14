@@ -1,16 +1,17 @@
 ﻿using GeometricFiguresLib.Exceptions;
-using GeometricFiguresLib.Figures.Supports;
+using GeometricFiguresLib.Figures;
+using GeometricFiguresLib.Supports;
 
-namespace GeometricFiguresLib.Figures.Factories
+namespace GeometricFiguresLib.Factories
 {
     /// <summary>
-    /// Фабрика для получения объекта треугольника 
+    /// Фабрика для получения объекта круга 
     /// </summary>
-    public class TriangleFactory : IFigureFactory
+    public class CircleFactory : IFigureFactory
     {
-        public bool TryGet(FigureParameters parameters, out IFigure triangle)
+        public bool TryGet(FigureParameters parameters, out IFigure circle)
         {
-            triangle = null;
+            circle = null;
 
             if (parameters == null)
                 return false;
@@ -18,12 +19,12 @@ namespace GeometricFiguresLib.Figures.Factories
             if (!parameters.GetParams().TryGetValue(FigureParameters.SidesKey, out var sides))
                 return false;
 
-            if (sides.Count() != 3)
+            if (sides.Count() != 1)
                 return false;
 
             try
             {
-                triangle = new Triangle(sides[0], sides[1], sides[2]);
+                circle = new Circle(sides[0]);
 
                 return true;
             }

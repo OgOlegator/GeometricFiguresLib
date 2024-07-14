@@ -36,10 +36,6 @@ namespace GeometricFiguresLib.Figures
             return Sqrt(semiPerimeter * (semiPerimeter - _sideA) * (semiPerimeter - _sideB) * (semiPerimeter - _sideC));
         }
 
-        /// <summary>
-        /// Треугольник существует?
-        /// </summary>
-        /// <returns></returns>
         public bool IsExists()
             => !(_sideA + _sideB < _sideC
                 || _sideA + _sideC < _sideB

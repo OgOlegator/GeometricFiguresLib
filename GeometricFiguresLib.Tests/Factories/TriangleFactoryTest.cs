@@ -1,5 +1,5 @@
-﻿using GeometricFiguresLib.Figures.Factories;
-using GeometricFiguresLib.Figures.Supports;
+﻿using GeometricFiguresLib.Factories;
+using GeometricFiguresLib.Supports;
 
 namespace GeometricFiguresLib.Tests.Factories
 {

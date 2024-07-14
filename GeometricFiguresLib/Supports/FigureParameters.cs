@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GeometricFiguresLib.Figures.Supports
+namespace GeometricFiguresLib.Supports
 {
     /// <summary>
     /// Параметры фигуры
@@ -31,7 +31,7 @@ namespace GeometricFiguresLib.Figures.Supports
         /// Добавить углы фигуры
         /// </summary>
         /// <param name="angles">Список углов фигуры</param>
-        public FigureParameters AddAngles(List<double> angles) 
+        public FigureParameters AddAngles(List<double> angles)
         {
             _params[AnglesKey] = angles;
 
