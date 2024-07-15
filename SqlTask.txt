@@ -1,0 +1,75 @@
+В базе данных MS SQL Server есть продукты и категории. Одному продукту может соответствовать много категорий, 
+в одной категории может быть много продуктов. Напишите SQL запрос для выбора всех пар «Имя продукта – Имя категории». 
+Если у продукта нет категорий, то его имя все равно должно выводиться.
+
+___________________________________________________________________________________________________________________________
+
+create database ProductMindbox;
+
+use ProductMindbox;
+
+CREATE TABLE Product
+(
+	Id   INT IDENTITY PRIMARY KEY,
+	Name NVARCHAR(255) NOT NULL UNIQUE,
+);
+
+CREATE TABLE Category
+(
+	Id   INT IDENTITY PRIMARY KEY,
+	Name NVARCHAR(255) NOT NULL UNIQUE,
+);
+
+CREATE TABLE ProductCategory
+(
+	ProductId int NOT NULL,
+	CategoryId int NOT NULL,
+
+	CONSTRAINT FK_ProductCategory_Product FOREIGN KEY (ProductId) REFERENCES Product (Id),
+
+	CONSTRAINT FK_ProductCategory_Categories FOREIGN KEY (CategoryId) REFERENCES Category (Id),
+
+	CONSTRAINT UNIQUE_ProductId_CategoryId UNIQUE (ProductId, CategoryId),
+);
+
+insert into Product (Name) 
+values 
+('Мясо'),
+('Рис'),
+('Гречка'),
+('Мыло'),
+('Конфеты'),
+('Чай'),
+('Кофе'),
+('Лимонад'),
+('Овощи');
+
+insert into Category (Name) 
+values 
+('Напитки'),
+('Еда'),
+('Натуральные'),
+('Бакалея'),
+('Снеки');
+
+insert into ProductCategory 
+values 
+(6, 1), 
+(6, 3), 
+(7, 1), 
+(7, 3), 
+(1, 2), 
+(1, 3), 
+(2, 4), 
+(2, 3), 
+(3, 4), 
+(3, 3), 
+(9, 3), 
+(8, 1);
+
+SELECT Product.Name as product, Category.Name as category
+FROM Product
+LEFT JOIN ProductCategory
+ON Product.Id = ProductCategory.ProductId
+LEFT JOIN Category
+ON ProductCategory.CategoryId = Category.Id;

@@ -3,9 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeometricFiguresLib", "GeometricFiguresLib\GeometricFiguresLib.csproj", "{0164398C-3166-4CDA-B4FD-F1F5DA4E3F98}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeometricFiguresLib", "GeometricFiguresLib\GeometricFiguresLib.csproj", "{0164398C-3166-4CDA-B4FD-F1F5DA4E3F98}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeometricFiguresLib.Tests", "GeometricFiguresLib.Tests\GeometricFiguresLib.Tests.csproj", "{D04E8652-3CBC-470E-BC8B-E80ECDA973C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeometricFiguresLib.Tests", "GeometricFiguresLib.Tests\GeometricFiguresLib.Tests.csproj", "{D04E8652-3CBC-470E-BC8B-E80ECDA973C4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SqlTask", "SqlTask", "{AE6568EA-3809-473A-8460-E43D3F4C1472}"
+	ProjectSection(SolutionItems) = preProject
+		SqlTask.txt = SqlTask.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
