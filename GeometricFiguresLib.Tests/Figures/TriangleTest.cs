@@ -46,6 +46,7 @@ namespace GeometricFiguresLib.Tests.Figures
         [DataRow(2, 5, 10)]
         [DataRow(11, 0, 10)]
         [DataRow(-4, 5, 6)]
+        [DataRow(-3, 5, 7)]
         public void Constructor_FigureNotExists_exception(double sideA, double sideB, double sideC)
         {
             Assert.ThrowsException<FigureNotExistsException>(() => new Triangle(sideA, sideB, sideC));

@@ -37,9 +37,12 @@ namespace GeometricFiguresLib.Figures
         }
 
         public bool IsExists()
-            => !(_sideA + _sideB < _sideC
-                || _sideA + _sideC < _sideB
-                || _sideB + _sideC < _sideA);
+            => _sideA > 0
+            && _sideB > 0
+            && _sideC > 0
+            && _sideA + _sideB > _sideC
+            && _sideA + _sideC > _sideB
+            && _sideB + _sideC > _sideA;
 
         /// <summary>
         /// Треугольник прямоугольный?
